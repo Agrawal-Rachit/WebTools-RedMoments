@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<context:component-scan base-package="com.me.*" />
+        <context:component-scan base-package="net.controller" />
+        
+<interceptors>
+    <interceptor>
+        <mapping path="/item/add"/> 
+        <beans:bean class="com.me.interceptor.ScriptingInterceptor">
+        </beans:bean>
+    </interceptor>
+    
+    </interceptors>
+  <beans:bean id="userValidator" class="com.me.validator.UserValidator"></beans:bean>       
+	<beans:bean id="userDao" class="com.me.dao.UserDAO" ></beans:bean>
+	<beans:bean id="categoryValidator" class="com.me.validator.CategoryValidator"></beans:bean>
+	<beans:bean id="categoryDao" class="com.me.dao.CategoryDAO" ></beans:bean>
+	<beans:bean id="itemValidator" class="com.me.validator.ItemValidator"></beans:bean>
+	<beans:bean id="itemDao" class="com.me.dao.ItemDAO" ></beans:bean>
+	<beans:bean id="cartDao" class="com.me.dao.CartDAO" ></beans:bean>
+        <beans:bean id="adminDao" class="com.me.dao.AdminDAO" ></beans:bean>
+        <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</beans:bean>
+        
+</beans:beans>
+
