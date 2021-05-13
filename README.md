@@ -1,6 +1,7 @@
 # WebTools-RedMoments
 
 Functionalities :-
+
 1. Sign up -> Various users can sign up to the portal and their credentials to 
 the database for adding item or purchasing items
 2. User Login and Logout -> Various users can login and logout of the portal 
@@ -23,7 +24,8 @@ website.
 9. PDF is been generated after the buyer confirms the purchase
 
 Technologies Used :-
-1.. Front End: Bootstrap, HTML5, CSS3, JQuery
+
+1. Front End: Bootstrap, HTML5, CSS3, JQuery
 2. Middle Tier: Spring Web MVC, Java Controller, Hibernate
 3. Data Tier: Relational Database – MySQL Workbench
 4. Server: Apache Tomcat
